@@ -218,10 +218,16 @@ function submitForm() {
   })
   .then(res => res.text())
   .then(text => {
-    if (text === "SUCCESS") {
-      msg.style.color = "green";
-      msg.innerText = "Registration successful. You may now login.";
-      btn.disabled = true;
+   if (text === "SUCCESS") {
+  msg.style.color = "green";
+  msg.innerHTML = `
+    Registration successful. 
+    You can <a href="https://me3273dy2026.github.io/Allocation/" 
+    style="color:#1565c0;font-weight:600;text-decoration:none;">
+    Login here
+    </a>.
+  `;
+  btn.disabled = true;
     } else if (text === "DUPLICATE") {
       msg.style.color = "red";
       msg.innerText = "You are already registered.";
